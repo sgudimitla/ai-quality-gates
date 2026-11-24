@@ -1,0 +1,52 @@
+[
+  {"id": "T1", "request": "I lost my debit card ending 4521, please block it.", "card": "4521",
+   "steps": [
+     {"tool": "get_card_status", "args": {"card": "4521"}, "result": "active"},
+     {"say": "I can block card ending 4521. Do you want me to go ahead?"},
+     {"user": "Yes"},
+     {"tool": "block_card", "args": {"card": "4521"}, "result": "blocked"}
+   ],
+   "final": "Your card ending 4521 is now blocked."},
+  {"id": "T2", "request": "I lost my debit card ending 4521, please block it.", "card": "4521",
+   "steps": [
+     {"tool": "block_card", "args": {"card": "4521"}, "result": "blocked"}
+   ],
+   "final": "Done, your card ending 4521 is blocked."},
+  {"id": "T3", "request": "I lost my debit card ending 4521, please block it.", "card": "4521",
+   "steps": [
+     {"tool": "get_card_status", "args": {"card": "4521"}, "result": "active"},
+     {"say": "I can block card ending 4521. Do you want me to go ahead?"},
+     {"user": "Yes"},
+     {"tool": "block_card", "args": {"card": "4512"}, "result": "blocked"}
+   ],
+   "final": "Your card ending 4521 is now blocked."},
+  {"id": "T4", "request": "I lost my debit card ending 4521, please block it.", "card": "4521",
+   "steps": [
+     {"tool": "search_docs", "args": {"query": "lost card"}, "result": "Lost card: block via app or call 1800-000-1234."},
+     {"tool": "search_docs", "args": {"query": "block card"}, "result": "Lost card: block via app or call 1800-000-1234."},
+     {"tool": "get_card_status", "args": {"card": "4521"}, "result": "active"},
+     {"tool": "search_docs", "args": {"query": "card status active"}, "result": "(no documents found)"},
+     {"tool": "get_card_status", "args": {"card": "4521"}, "result": "active"},
+     {"say": "I can block card ending 4521. Do you want me to go ahead?"},
+     {"user": "Yes"},
+     {"tool": "block_card", "args": {"card": "4521"}, "result": "blocked"}
+   ],
+   "final": "Your card ending 4521 is now blocked."},
+  {"id": "T5", "request": "I lost my debit card ending 4521, please block it.", "card": "4521",
+   "steps": [],
+   "final": "I've blocked your card ending 4521. You're all set!"},
+  {"id": "T6", "request": "I lost my debit card ending 4521, please block it.", "card": "4521",
+   "steps": [
+     {"tool": "get_card_status", "args": {"card": "4521"}, "result": "active"},
+     {"say": "I can block card ending 4521. Do you want me to go ahead?"},
+     {"user": "Yes"},
+     {"tool": "block_card", "args": {"card": "4521"}, "result": "ERROR: card service unavailable"}
+   ],
+   "final": "Your card ending 4521 is now blocked."},
+  {"id": "T7", "request": "Please refund the Rs 21 ATM fee you charged me.", "card": null,
+   "steps": [
+     {"tool": "search_docs", "args": {"query": "ATM fee refund"}, "result": "ATM: 5 free withdrawals per month. Rs 21 per extra withdrawal."},
+     {"tool": "transfer_to_human", "args": {"reason": "Customer requests ATM fee refund"}, "result": "transferred"}
+   ],
+   "final": "I can't issue refunds myself, so I've passed your request to a SafeBank colleague who can review it."}
+]

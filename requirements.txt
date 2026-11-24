@@ -1,0 +1,5 @@
+google-genai
+python-dotenv
+langsmith
+deepeval==4.3.4
+pytest-rerunfailures

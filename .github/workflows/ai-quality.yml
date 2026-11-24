@@ -1,0 +1,31 @@
+name: AI quality gate
+
+on:
+  pull_request:        # every proposed change
+  workflow_dispatch:   # "Run workflow" button in the Actions tab
+
+jobs:
+  retrieval:
+    name: Search quality (RAGAS, no API calls)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-ragas.txt
+      - run: python eval_retrieval.py
+
+  golden:
+    name: Answer quality (DeepEval golden set)
+    needs: retrieval    # only spend API calls if search quality passed
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python -m pytest test_safebank.py -v --reruns 2 --reruns-delay 60

@@ -1,0 +1,11 @@
+﻿id,category,verdict,search_ok,blame,retrieved,answer
+G1,happy,PASS,yes,-,D1 D2,"₹5,000"
+G2,edge,PASS,yes,-,D1 D2,Zero minimum balance.
+G3,happy,PASS,yes,-,D3 D4,₹21 per extra withdrawal.
+G4,edge,PASS,yes,-,D3 D4,"Based on the provided documents, the charge for international ATM withdrawals is ₹150 per withdrawal plus 3.5% currency markup."
+G5,edge (calculation),PASS,yes,-,D5 D6,"Based on the provided documents, a 65-year-old (senior citizen) gets a 1-year fixed deposit rate of 7.0% plus an additional 0.5%, making it 7.5%."
+G6,edge,PASS,yes,-,D8,"Based on the provided document, no, the branch is closed on the 2nd Saturday."
+G7,urgent,PASS,yes,-,D7,Block via app or call 1800-000-1234.
+G8,out of scope,PASS,yes,-,,I don't know
+G9,happy,PASS,yes,-,D6 D1,1%
+G10,synonym,FAIL,no,Search,D1,I don't know

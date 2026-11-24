@@ -1,0 +1,6 @@
+.env
+.venv/
+.venv-ragas/
+node_modules/
+__pycache__/
+.deepeval/

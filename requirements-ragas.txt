@@ -1,0 +1,4 @@
+ragas==0.4.4
+google-genai
+python-dotenv
+langsmith
