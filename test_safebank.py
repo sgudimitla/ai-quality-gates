@@ -66,12 +66,13 @@ def correctness_metric():
 
 
 def faithfulness_metric():
-    return FaithfulnessMetric(model=judge, threshold=0.7, async_mode=False)
+    return FaithfulnessMetric(model=judge, threshold=0.7, async_mode=False, verbose_mode=True)
 
 
 @pytest.mark.parametrize("case", PARAMS)
 def test_golden(case):
     result = with_infra_retry(answer, case["question"])
+    print(f"\n[{case['id']}] BOT ANSWER: {result['answer']}")
     test_case = LLMTestCase(
         input=case["question"],
         actual_output=result["answer"],
